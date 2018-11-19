@@ -1,0 +1,16 @@
+<h1>New Game</h1>
+
+<div>
+<% @letters.each do |letter|%>
+<%= letter %>
+<%end%>
+</div>
+<div>
+  <form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %> 
+  <%# this simply passes on the information that is contained in letters %>
+  <input type="text" name="word" placeholder="Try Make a Word">
+  <input type="submit">
+  </form>
+</div>
